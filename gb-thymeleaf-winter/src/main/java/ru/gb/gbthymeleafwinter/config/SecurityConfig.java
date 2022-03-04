@@ -33,9 +33,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests((requests) -> {
             ((ExpressionUrlAuthorizationConfigurer.AuthorizedUrl)requests.anyRequest()).authenticated();
         });
-        http.formLogin();
+        http.formLogin().loginPage("/product/loginMy");   // DZ 11
         http.httpBasic();
     }
+
+//    /login?logout
+
+
+
+
 
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {

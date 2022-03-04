@@ -1,5 +1,5 @@
 insert into account_user(username, password, firstname, lastname, account_non_expired, account_non_locked, credentials_non_expired, enabled)
-values ('$2a$10$o76vT7be2Wlf5COCxdpu.eOhS56trBcLCN.NqSDW00hGz9SSCzA6u', 'user', 'Иван', 'Петров', true, true, true,
+values ('user', '$2a$10$o76vT7be2Wlf5COCxdpu.eOhS56trBcLCN.NqSDW00hGz9SSCzA6u', 'Иван', 'Петров', true, true, true,
         true),
        ('admin', '$2a$10$AbUwMreMZ1y7JDKKGhshve6DazhHb4DilCfif8cxNpHAn0u2D8aYO', 'Владимир', 'Иванов', true, true, true,
         true);
