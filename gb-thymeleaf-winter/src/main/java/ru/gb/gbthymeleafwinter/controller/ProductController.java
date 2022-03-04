@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.gb.gbthymeleafwinter.entity.Product;
 import ru.gb.gbthymeleafwinter.service.ProductService;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/product")
@@ -57,4 +59,28 @@ public class ProductController {
         return "redirect:/product/all";
     }
 
+    // DZ_11
+    @GetMapping("/cart")
+    public String getProductListFromCart(Model model){
+        model.addAttribute("cartProducts", productService.findAllInCart());
+        return "cart-list";
+    }
+
+    @GetMapping("/cart/add/{productId}")
+    public String addProductToCart(@PathVariable("productId") Long id){
+        productService.addProductToCart(id);
+        return "redirect:/product/all";
+    }
+
+    @GetMapping("/cart/delete/{productId}")
+    public String deleteProductFromCartById(@PathVariable("productId") Long id){
+        productService.deleteProductFromCart(id);
+        return "redirect:/product/cart";
+    }
+
+    @GetMapping("/loginMy")
+    public String login(){
+
+        return "loginMy";
+    }
 }
